@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t bippity-bop/docker-aws-test -f Dockerfile.dev .
+
+script:
+  - docker run bippity-bop/docker-aws-test npm test -- --coverage
